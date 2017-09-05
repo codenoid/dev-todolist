@@ -1,0 +1,25 @@
+/* * * * * * * * * * * * * *
+*
+* Writer : Rubi jihantoro
+* For : @OpenSourceID
+* 
+* * * * * * * * * * * * * * */
+
+body {margin: 0px;padding: 0px;background: #CB356B;background: -webkit-linear-gradient(to right, #BD3F32, #CB356B);background: linear-gradient(to right, #BD3F32, #CB356B);}
+h1.title {text-align: center;margin: 20px 0px;color: #f5f5f5;letter-spacing: 1px;font-family: 'Varela Round', sans-serif;}
+.title.task {font-size: 40px;}
+.three {margin: 10px auto;width: 600px;text-align: center;}
+.three > div {display: inline-block;vertical-align: top;width: 30%;text-align: center;}
+.list {width: 600px;margin: 20px auto;}
+.list > .item {background-color: white;padding: 3px 15px;border-radius: 5px;margin: 10px 0px;font-family: 'Varela Round', sans-serif;}
+.list > .item:hover {box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);cursor:default;}
+.list > .item h2:hover {cursor:pointer;}
+.three > div > div {margin-top: -15px;font-family: 'Varela Round', sans-serif;color: white;}
+.three > div {cursor: pointer;}
+.three > div:hover * {color:#dee2e5;}
+div.item.done > * {text-decoration: line-through;}
+div.item {-moz-user-select: none;-khtml-user-select: none;-webkit-user-select: none;-ms-user-select: none;user-select: none;}
+footer {background-color: white;width: 100%;min-height: 30px;position: fixed;bottom: 0px;left: 0px;text-align: center;font-family: 'Varela Round', sans-serif;}
+.hide {display: none;}
+footer span {font-family: 'Varela Round', sans-serif;font-size: 12px;}
+footer input {margin-top: 3.5px;}

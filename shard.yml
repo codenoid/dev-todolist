@@ -1,0 +1,21 @@
+name: checklist
+version: 0.1.0
+
+authors:
+  - Rubi Jihantoro <jihantoro8@gmail.com>
+
+dependencies:
+  kemal:
+    github: kemalcr/kemal
+    branch: master
+  mongo:
+    github: datanoise/mongo.cr
+    branch: master
+
+targets:
+  checklist:
+    main: src/checklist.cr
+
+crystal: 0.23.1
+
+license: MIT

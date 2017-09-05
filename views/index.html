@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Serverside Checklist - Dev Checklist !</title>
+	<link rel="stylesheet" href="../public/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet"> 
+</head>
+<body id="app">
+<h1 class="title">Serverside Check!</h1>
+<div class="three">
+	<div class="tt">
+		<h1 class="title task">{{ total }}</h1>
+		<div>
+			Total Task
+		</div>
+	</div>
+	<div class="ut">
+		<h1 class="title task">{{ unfinished }}</h1>
+		<div>
+			Unfinished Task
+		</div>
+	</div>
+	<div class="ft">
+		<h1 class="title task">{{ finished }}</h1>
+		<div>
+			Finished Task
+		</div>
+	</div>
+</div>
+<div class="list">
+	<div class="item {{ item.class }}" m-for="item in list.data" item-id="{{ item.id }}" m-on:click="done(item.id)">
+		<h2>{{ item.title }}</h2>
+		<p>{{ item.description }}</p>
+	</div>
+</div>
+
+<footer>
+	<span>your link : http://checklist.jihantoro.net/?fw=ga</span>
+	<input type="text" name="email" placeholder="Write your email to save it">
+</footer>
+<script src="https://unpkg.com/moonjs"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="http://zeptojs.com/zepto.min.js"></script>
+<script>
+const app = new Moon({
+  el: "#app",
+  hooks: {
+    init: function() {
+      
+    },
+    mounted: function() {
+    	this.callMethod("getData", []);
+    },
+    updated: function() {
+      // called every time data is updated
+    },
+    destroyed: function() {
+      // called when it is destroyed, the component might be removed
+      // from the DOM
+    }
+  },
+  data: {
+  	active: "all",
+    list: [],
+    total: 2,
+    unfinished: 1,
+    finished: 1
+  },
+  methods: {
+    done: function(id) {
+    	var s = 'div[item-id="'+id+'"]';
+      $(s).toggleClass("done");
+      var hs = $(s).hasClass("done");
+      if(hs) app.callMethod('plus');
+      else app.callMethod('min');
+    },
+    plus: function() {
+			this.set('finished', this.get('finished') + 1);
+			this.set('unfinished', this.get('unfinished') - 1);
+    },
+    min: function() {
+			this.set('finished', this.get('finished') - 1);
+			this.set('unfinished', this.get('unfinished') + 1);
+    },
+    getData: function() {
+      axios.get("http://localhost:3000/api/?for=ayam").then(function(response) {
+        app.set("list", response.data);
+      }).catch(function(error) {
+        console.log(error);
+      });
+    }
+  }
+});
+</script>
+</body>
+</html>
