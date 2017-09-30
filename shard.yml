@@ -8,9 +8,6 @@ dependencies:
   kemal:
     github: kemalcr/kemal
     branch: master
-  mongo:
-    github: datanoise/mongo.cr
-    branch: master
 
 targets:
   checklist:
